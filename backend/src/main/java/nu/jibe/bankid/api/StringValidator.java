@@ -9,12 +9,12 @@ import static java.util.Objects.requireNonNull;
 /**
  *
  */
-public class StringValidator {
+abstract class StringValidator {
     protected static final Pattern DEFAULT_PATTERN = Pattern.compile(".*");
 
     private final String value;
 
-    public StringValidator(String value, Pattern pattern) {
+    protected StringValidator(String value, Pattern pattern) {
         if (!pattern.matcher(requireNonNull(value)).matches()) {
             throw new IllegalArgumentException("value: " + value + " does not match: " + pattern.pattern());
         }
