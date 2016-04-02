@@ -1,12 +1,6 @@
-# jibe-starter-bankid
+# jibe-starter-bankid-backend
 
-The aim of this project is to implement a front- and a backend to illustrate
-how to integrate with bankid.
+You have to have a certificate, found at https://www.bankid.com/bankid-i-dina-tjanster/rp-info
 
-Based on the information found at:
-
-https://www.bankid.com/bankid-i-dina-tjanster/rp-info
-
-https://demo.bankid.com/
-
+Password should be: qwerty123
 #
