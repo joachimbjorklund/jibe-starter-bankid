@@ -2,9 +2,6 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <properties>
-        <spring-boot.version>1.3.3.RELEASE</spring-boot.version>
-    </properties>
 
     <parent>
         <groupId>nu.jibe</groupId>
@@ -14,18 +11,6 @@
 
     <artifactId>jibe-starter-bankid-backend</artifactId>
     <name>${project.groupId}:{project.artifactId}</name>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -68,7 +53,7 @@
                             <properties>
                                 <property>
                                     <name>javax.net.ssl.trustStore</name>
-                                    <value>${basedir}/src/main/resources/trust-store.jks</value>
+                                    <value>${project.basedir}/src/main/resources/trust-store.jks</value>
                                 </property>
                                 <property>
                                     <name>javax.net.ssl.trustStoreType</name>
@@ -80,7 +65,7 @@
                                 </property>
                                 <property>
                                     <name>javax.net.ssl.keyStore</name>
-                                    <value>${basedir}/src/main/resources/FPTestcert2_20150818_102329.pfx</value>
+                                    <value>${project.basedir}/src/main/resources/FPTestcert2_20150818_102329.pfx</value>
                                 </property>
                                 <property>
                                     <name>javax.net.ssl.keyStoreType</name>
