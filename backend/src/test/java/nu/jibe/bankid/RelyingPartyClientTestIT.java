@@ -1,6 +1,8 @@
 package nu.jibe.bankid;
 
 import nu.jibe.bankid.api.AuthResponse;
+import nu.jibe.bankid.api.CollectProgressStatus;
+import nu.jibe.bankid.api.CollectResponse;
 import nu.jibe.bankid.api.RelyingPartyClient;
 import nu.jibe.bankid.core.RelyingPartyClientBuilder;
 import org.slf4j.Logger;
@@ -14,6 +16,7 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
 /**
@@ -57,6 +60,19 @@ public class RelyingPartyClientTestIT extends AbstractTestNGSpringContextTests {
 
         LOGGER.debug("orderRef: {}", authResponse.getOrderReference());
         LOGGER.debug("autoStartToken: {}", authResponse.getAutoStartToken());
+    }
+
+    @Test
+    public void testAuthAndCollect() throws Exception {
+        AuthResponse authResponse = client.auth(testUser.getPersonalNumber());
+        assertNotNull(authResponse);
+        LOGGER.debug("orderRef: {}", authResponse.getOrderReference());
+        LOGGER.debug("autoStartToken: {}", authResponse.getAutoStartToken());
+
+        CollectResponse collectResponse = client.collect(authResponse.getOrderReference());
+        assertNotNull(authResponse);
+        LOGGER.debug("progressStatus: {}", collectResponse.getCollectProgressStatus());
+        assertEquals(collectResponse.getCollectProgressStatus(), CollectProgressStatus.OUTSTANDING_TRANSACTION);
     }
 
     private void setupCrypto() {
