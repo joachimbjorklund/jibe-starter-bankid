@@ -1,6 +1,6 @@
 package nu.jibe.bankid;
 
-import nu.jibe.bankid.api.PersonalNumber;
+import nu.jibe.bankid.api.User;
 
 import java.util.Random;
 
@@ -8,9 +8,9 @@ import java.util.Random;
  *
  */
 public class TestUser {
-    private final PersonalNumber personalNumber;
+    private final User.PersonalNumber personalNumber;
 
-    public TestUser(PersonalNumber personalNumber) {
+    public TestUser(User.PersonalNumber personalNumber) {
         this.personalNumber = personalNumber;
     }
 
@@ -18,7 +18,7 @@ public class TestUser {
         return new TestUser(randomPersonalNumber());
     }
 
-    private static PersonalNumber randomPersonalNumber() {
+    private static User.PersonalNumber randomPersonalNumber() {
         String year = String.valueOf(nextInt(40, 90));
         String month = String.valueOf(nextInt(1, 12));
         if (month.length() == 1) {
@@ -39,7 +39,7 @@ public class TestUser {
         }
         String pNbr = String.format("%s%s%s%s", year, month, day, last);
         pNbr += luhn(pNbr);
-        return new PersonalNumber("19" + pNbr);
+        return new User.PersonalNumber("19" + pNbr);
     }
 
     private static String luhn(String number) {
@@ -68,7 +68,7 @@ public class TestUser {
         return i;
     }
 
-    public PersonalNumber getPersonalNumber() {
+    public User.PersonalNumber getPersonalNumber() {
         return personalNumber;
     }
 }

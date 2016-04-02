@@ -12,7 +12,7 @@ import static java.util.Objects.requireNonNull;
 abstract class StringValidator {
     protected static final Pattern DEFAULT_PATTERN = Pattern.compile(".*");
 
-    private final String value;
+    protected final String value;
 
     protected StringValidator(String value, Pattern pattern) {
         if (!pattern.matcher(requireNonNull(value)).matches()) {
