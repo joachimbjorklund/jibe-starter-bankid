@@ -40,31 +40,31 @@
                             <properties>
                                 <property>
                                     <name>javax.net.ssl.trustStore</name>
-                                    <value>${jibe-bankid.trust-store}</value>
+                                    <value>${jibe-starter-bankid.trust-store}</value>
                                 </property>
                                 <property>
                                     <name>javax.net.ssl.trustStoreType</name>
-                                    <value>${jibe-bankid.trust-store-type}</value>
+                                    <value>${jibe-starter-bankid.trust-store-type}</value>
                                 </property>
                                 <property>
                                     <name>javax.net.ssl.trustStorePassword</name>
-                                    <value>${jibe-bankid.trust-store-password}</value>
+                                    <value>${jibe-starter-bankid.trust-store-password}</value>
                                 </property>
                                 <property>
                                     <name>javax.net.ssl.keyStore</name>
-                                    <value>${jibe-bankid.key-store}</value>
+                                    <value>${jibe-starter-bankid.key-store}</value>
                                 </property>
                                 <property>
                                     <name>javax.net.ssl.keyStoreType</name>
-                                    <value>${jibe-bankid.key-store-type}</value>
+                                    <value>${jibe-starter-bankid.key-store-type}</value>
                                 </property>
                                 <property>
                                     <name>javax.net.ssl.keyStorePassword</name>
-                                    <value>${jibe-bankid.key-store-password}</value>
+                                    <value>${jibe-starter-bankid.key-store-password}</value>
                                 </property>
                                 <property>
                                     <name>javax.net.debug</name>
-                                    <value>${jibe-bankid.net-debug}</value>
+                                    <value>${jibe-starter-bankid.net-debug}</value>
                                 </property>
                             </properties>
                         </configuration>
