@@ -40,7 +40,7 @@
     </modules>
 
     <properties>
-        <testng.version>6.8.7</testng.version>
+        <testng.version>6.9.4</testng.version>
         <slf4j.version>1.7.10</slf4j.version>
 
         <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
@@ -52,14 +52,25 @@
         <properties-maven-plugin.version>1.0.0</properties-maven-plugin.version>
         <maven-enforcer-plugin.version>1.4.1</maven-enforcer-plugin.version>
         <cxf.version>3.1.6</cxf.version>
+        <commons-lang3.version>3.4</commons-lang3.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>${testng.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

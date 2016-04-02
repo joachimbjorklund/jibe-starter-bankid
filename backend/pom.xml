@@ -2,6 +2,9 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <properties>
+        <spring-boot.version>1.3.3.RELEASE</spring-boot.version>
+    </properties>
 
     <parent>
         <groupId>nu.jibe</groupId>
@@ -12,24 +15,49 @@
     <artifactId>jibe-starter-bankid-backend</artifactId>
     <name>${project.groupId}:{project.artifactId}</name>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>properties-maven-plugin</artifactId>
                 <executions>
-                    <execution>
-                        <id>read-project-properties</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>read-project-properties</goal>
-                        </goals>
-                        <configuration>
-                            <files>
-                                <file>${basedir}/src/main/resources/application.properties</file>
-                            </files>
-                        </configuration>
-                    </execution>
                     <execution>
                         <id>set-system-properties</id>
                         <phase>validate</phase>
@@ -40,31 +68,27 @@
                             <properties>
                                 <property>
                                     <name>javax.net.ssl.trustStore</name>
-                                    <value>${jibe-starter-bankid.trust-store}</value>
+                                    <value>${basedir}/src/main/resources/trust-store.jks</value>
                                 </property>
                                 <property>
                                     <name>javax.net.ssl.trustStoreType</name>
-                                    <value>${jibe-starter-bankid.trust-store-type}</value>
+                                    <value>JKS</value>
                                 </property>
                                 <property>
                                     <name>javax.net.ssl.trustStorePassword</name>
-                                    <value>${jibe-starter-bankid.trust-store-password}</value>
+                                    <value>qwerty123</value>
                                 </property>
                                 <property>
                                     <name>javax.net.ssl.keyStore</name>
-                                    <value>${jibe-starter-bankid.key-store}</value>
+                                    <value>${basedir}/src/main/resources/FPTestcert2_20150818_102329.pfx</value>
                                 </property>
                                 <property>
                                     <name>javax.net.ssl.keyStoreType</name>
-                                    <value>${jibe-starter-bankid.key-store-type}</value>
+                                    <value>PKCS12</value>
                                 </property>
                                 <property>
                                     <name>javax.net.ssl.keyStorePassword</name>
-                                    <value>${jibe-starter-bankid.key-store-password}</value>
-                                </property>
-                                <property>
-                                    <name>javax.net.debug</name>
-                                    <value>${jibe-starter-bankid.net-debug}</value>
+                                    <value>qwerty123</value>
                                 </property>
                             </properties>
                         </configuration>
