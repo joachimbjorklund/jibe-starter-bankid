@@ -5,14 +5,14 @@ package nu.jibe.bankid.api;
  */
 public class AuthResponse {
     private final OrderReference orderReference;
-    private final AutoStartToken autoStartToken;
+    private final AutostartToken autoStartToken;
 
-    public AuthResponse(OrderReference orderReference, AutoStartToken autoStartToken) {
+    public AuthResponse(OrderReference orderReference, AutostartToken autoStartToken) {
         this.orderReference = orderReference;
         this.autoStartToken = autoStartToken;
     }
 
-    public AutoStartToken getAutoStartToken() {
+    public AutostartToken getAutoStartToken() {
         return autoStartToken;
     }
 
