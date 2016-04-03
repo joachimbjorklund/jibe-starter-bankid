@@ -10,7 +10,7 @@ import com.bankid.rpservice.v4_0_0.types.OrderResponseType;
 import com.bankid.rpservice.v4_0_0.types.UserInfoType;
 import nu.jibe.bankid.api.AlreadyInProgressException;
 import nu.jibe.bankid.api.AuthResponse;
-import nu.jibe.bankid.api.AutoStartToken;
+import nu.jibe.bankid.api.AutostartToken;
 import nu.jibe.bankid.api.CollectProgressStatus;
 import nu.jibe.bankid.api.CollectResponse;
 import nu.jibe.bankid.api.OcspResponse;
@@ -76,7 +76,7 @@ public class DefaultRelyingPartyClient implements RelyingPartyClient {
     }
 
     private AuthResponse toAuthResponse(OrderResponseType orderResponse) {
-        return new AuthResponse(new OrderReference(orderResponse.getOrderRef()), new AutoStartToken(orderResponse.getAutoStartToken()));
+        return new AuthResponse(new OrderReference(orderResponse.getOrderRef()), new AutostartToken(orderResponse.getAutoStartToken()));
     }
 
     private AuthenticateRequestType createAuthenticateRequest(User.PersonalNumber personalNumber) {
